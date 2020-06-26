@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Backend/etc/system_file.xsd">
+    <system>
+        <tab id="iwd" translate="label" sortOrder="999998" class="iwd-extensions-tab">
+            <label>IWD Agency</label>
+        </tab>
+        <section id="iwd_store_locator" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Store Locator</label>
+            <tab>iwd</tab>
+            <resource>IWD_StoreLocator::system_config</resource>
+            <group id="general" translate="label" type="text"
+                   sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="my_account" translate="label" type="text"
+                       sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Manage Stores</label>
+                    <frontend_model>IWD\StoreLocator\Block\Adminhtml\System\Config\Link</frontend_model>
+                </field>
+                <field id="documentation" translate="label" type="text"
+                       sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Documentation</label>
+                    <frontend_model>IWD\StoreLocator\Block\Adminhtml\System\Config\Documentation</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

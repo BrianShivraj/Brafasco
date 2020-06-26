@@ -14,5 +14,6 @@
         <font src="fonts/fontawesome-webfont.woff"/>
         <font src="fonts/fontawesome-webfont.woff2"/>
         <font src="fonts/FontAwesome.otf"/>
+         <link src="js/custom.js"/>
     </head>
 </page>
