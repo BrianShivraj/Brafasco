@@ -1,0 +1,163 @@
+//
+//  Common (style-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+  // your code
+}
+
+//
+//  Mobile (style-m.css)
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  // your code
+}
+
+//
+//  Tablet
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  // your code
+}
+
+.page-header {
+  border: 0;
+  margin-bottom: 0;
+  background-color:#000;
+}
+.page-footer {
+    background: #000;
+    margin-top: auto;
+    padding-bottom: 25px;
+}
+
+.heading {
+    text-align: center;
+}
+.sub-heading
+{
+	color:#d6d6d6;
+	font-size:22px;
+	 text-transform: uppercase;
+	  font-weight:bold;
+	  font-style:italic;
+	  text-align:center;
+}
+
+/*.sub-heading
+{
+	text-transform:capitalize;
+}*/
+.left-main
+{
+	width:271px;
+	float:left;
+}
+.right-main
+{
+	background: rgba(68, 68, 68, 0.8) none repeat scroll 0 0;
+    border-radius: 0 1em 1em 0;
+    float: left;
+   height: 170px;
+    margin-top: 12px;
+    padding: 20px;
+    text-align: center;
+    width: 50%;
+}
+.right-main .btn-yellow {
+    text-transform: uppercase;
+	 padding: 10px 20px;
+	  margin: 0;
+}
+.right-main .right-head {
+    color: rgb(255, 255, 255);
+	 margin-bottom: 20px;
+	 margin-top: 15px;
+	  font-size: 20px;
+	  font-weight: bold;
+	  text-transform:uppercase;
+  }
+  .item .heading{
+   /* color: rgb(255, 194, 15);*/
+    font-size: 42px;
+	  text-transform: uppercase;
+	  font-weight:bold;
+	  font-style:italic;
+	  margin-bottom: 0;
+	   line-height: 40px;
+}
+.item .heading span {
+    color: #fff;
+    /*font-size:41px;*/
+}
+.main {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.main-slider {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.heading {
+    text-align: center;
+}
+.sub-heading
+{
+	color:#d6d6d6;
+	font-size:22px;
+	text-transform: uppercase;
+	font-weight:bold;
+	font-style:italic;
+	text-align:center;
+}
+
+.item .heading small
+{
+	color: rgb(255, 194, 15);
+	 font-size: 41px;
+}
+.right-main > p {
+   color: rgb(255, 255, 255);
+     font-size: 16px;
+	 margin: 0 !important;
+}
+.right-main .diff {
+    margin-top: 20px !important ;
+	font-size:11px;
+}
+  .page-title-wrapper {
+    display:none;
+    }
+    a,
+.alink {
+  color: #ffc20f;
+  text-decoration: none;
+}
+a:visited,
+.alink:visited {
+  color: #ffc20f;
+  text-decoration: none;
+}
+a:hover,
+.alink:hover {
+  color:#ffc20f ;
+  text-decoration: underline;
+}
+a:active,
+.alink:active {
+  color: #ffc20f;
+  text-decoration: underline;
+}
+.copyright {
+    background-color: #000000;
+    color: #ffffff;
+    box-sizing: border-box;
+    display: block;
+    padding: 10px;
+    text-align: center;
+}
+//
+//  Desktop (style-l.css)
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  // your code
+}
