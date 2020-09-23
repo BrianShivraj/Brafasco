@@ -42,16 +42,43 @@
         </container>
        </referenceContainer>
   <referenceContainer name="header-wrapper">
-    <container htmlClass="header-social" htmlTag="div" name="ship.notice.col-12">
-        <block class="Magento\Cms\Block\Block" name="header-social" after="minicart">
+    <container htmlClass="header-social" htmlTag="div" name="header-1">
+        <block class="Magento\Cms\Block\Block" name="header-phone" after="minicart">
             <arguments>
-                <argument name="block_id" xsi:type="string">header-social</argument>
+                <argument name="block_id" xsi:type="string">header-phone</argument>
             </arguments>
         </block>
     </container>
      </referenceContainer>
+     <referenceContainer name="header-wrapper">
+       <container htmlClass="header-social" htmlTag="div" name="header-2">
+           <block class="Magento\Cms\Block\Block" name="header-facebook" before="header-1">
+               <arguments>
+                   <argument name="block_id" xsi:type="string">header-facebook</argument>
+               </arguments>
+           </block>
+       </container>
+        </referenceContainer>
+        <referenceContainer name="header-wrapper">
+          <container htmlClass="header-social" htmlTag="div" name="header-3">
+              <block class="Magento\Cms\Block\Block" name="header-twitter" before="header-2">
+                  <arguments>
+                      <argument name="block_id" xsi:type="string">header-twitter</argument>
+                  </arguments>
+              </block>
+          </container>
+           </referenceContainer>
+           <referenceContainer name="header-wrapper">
+             <container htmlClass="header-social" htmlTag="div" name="header-4">
+                 <block class="Magento\Cms\Block\Block" name="header-instagram" before="header-3">
+                     <arguments>
+                         <argument name="block_id" xsi:type="string">header-instagram</argument>
+                     </arguments>
+                 </block>
+             </container>
+              </referenceContainer>
 
-
+<move element="action.nav-toggle" destination="home-specials" after="header.panel" />
  <move element="breadcrumbs" destination="page.top" after="home-specials"/>
 <move element="top.search" destination="catalog.topnav" before="top.menu" />
 

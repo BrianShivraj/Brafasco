@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <settings>
+        <buttons>
+            <button name="export" class="\Wyomind\StoreLocator\Block\Adminhtml\Source\Grid\Button\Export"/>
+            <button name="import" class="\Wyomind\StoreLocator\Block\Adminhtml\Source\Grid\Button\Import"/>
+
+        </buttons>
+
+    </settings>
+    <columns name="inventory_source_listing_columns">
+        <column name="visible_in_storelocator" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
+            <settings>
+                <label translate="true">Visible in Store Locator</label>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <options>
+                    <option name="0" xsi:type="array">
+                        <item name="value" xsi:type="number">1</item>
+                        <item name="label" xsi:type="string" translate="true">Yes</item>
+                    </option>
+                    <option name="1" xsi:type="array">
+                        <item name="value" xsi:type="number">0</item>
+                        <item name="label" xsi:type="string" translate="true">No</item>
+                    </option>
+                </options>
+
+            </settings>
+        </column>
+        <column name="use_config_description" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
+            <settings>
+                <label translate="true">Use the default description template</label>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <options>
+                    <option name="0" xsi:type="array">
+                        <item name="value" xsi:type="number">1</item>
+                        <item name="label" xsi:type="string" translate="true">Yes</item>
+                    </option>
+                    <option name="1" xsi:type="array">
+                        <item name="value" xsi:type="number">0</item>
+                        <item name="label" xsi:type="string" translate="true">No</item>
+                    </option>
+                </options>
+
+            </settings>
+        </column>
+
+        <column name="enable_page" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
+            <settings>
+                <label translate="true">Store page enabled</label>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <options>
+                    <option name="0" xsi:type="array">
+                        <item name="value" xsi:type="number">1</item>
+                        <item name="label" xsi:type="string" translate="true">yes</item>
+                    </option>
+                    <option name="1" xsi:type="array">
+                        <item name="value" xsi:type="number">0</item>
+                        <item name="label" xsi:type="string" translate="true">No</item>
+                    </option>
+                </options>
+
+            </settings>
+        </column>
+        <column name="url_key" sortOrder="150">
+            <settings>
+                <filter>text</filter>
+
+                <label translate="true">Url Key</label>
+                <visible>true</visible>
+
+            </settings>
+
+        </column>
+
+
+    </columns>
+</listing>

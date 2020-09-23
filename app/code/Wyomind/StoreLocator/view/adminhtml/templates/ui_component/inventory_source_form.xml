@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <settings>
+
+        <dataScope>data</dataScope>
+        <namespace>inventory_source_form</namespace>
+        <deps>
+            <dep>inventory_source_form.inventory_source_form_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="delete" class="\Wyomind\StoreLocator\Block\Adminhtml\Source\Edit\Button\Delete"/>
+
+
+        </buttons>
+    </settings>
+    <dataSource name="inventory_source_form_data_source" component="Magento_Ui/js/form/provider">
+
+        <dataProvider class="Magento\InventoryAdminUi\Ui\DataProvider\SourceDataProvider"
+                      name="inventory_source_form_data_source">
+            <settings>
+                <requestFieldName>source_code</requestFieldName>
+                <primaryFieldName>main_table.source_code</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <field name="latitude" formElement="component"/>
+        <field name="longitude" formElement="component"/>
+        <field name="description" formElement="component"/>
+
+
+        <field name="store_ids" formElement="multiselect">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">block</item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>int</dataType>
+                <label translate="true">Store View</label>
+
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="\Magento\Store\Ui\Component\Listing\Column\Store\Options"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+        <field name="customer_group_ids" formElement="multiselect">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">catalog_rule</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>number</dataType>
+                <label translate="true">Customer Groups</label>
+
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="Magento\CatalogRule\Model\Rule\CustomerGroupsOptionsProvider"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+    </fieldset>
+    <fieldset name="location" sortOrder="15">
+        <settings>
+            <label translate="true">Store location</label>
+            <collapsible>true</collapsible>
+            <opened>false</opened>
+            <dataScope>general</dataScope>
+        </settings>
+        <field name="latitude" formElement="input" sortOrder="50">
+            <settings>
+                <validation>
+                    <rule name="validate-number" xsi:type="boolean">true</rule>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>number</dataType>
+                <label translate="true">Latitude</label>
+            </settings>
+        </field>
+        <field name="longitude" formElement="input" sortOrder="60">
+            <settings>
+                <validation>
+                    <rule name="validate-number" xsi:type="boolean">true</rule>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>number</dataType>
+                <label translate="true">Longitude</label>
+            </settings>
+        </field>
+        <container name="gmap_container">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">100</item>
+                </item>
+            </argument>
+            <htmlContent name="gmap">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="additionalClasses" xsi:type="array">
+                            <item name="gmap-container" xsi:type="boolean">true</item>
+                            <item name="admin__field" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </argument>
+                <argument name="block" xsi:type="object">Wyomind\StoreLocator\Block\Adminhtml\Source\Edit\Gmap
+                </argument>
+
+            </htmlContent>
+        </container>
+    </fieldset>
+    <fieldset name="storelocator" sortOrder="16">
+        <settings>
+            <label translate="true">Store Locator settings</label>
+            <collapsible>true</collapsible>
+            <opened>false</opened>
+            <dataScope>general</dataScope>
+        </settings>
+        <field name="visible_in_storelocator" formElement="checkbox" sortOrder="10">
+
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">1</item>
+                    <item name="component" xsi:type="string">
+                        Wyomind_StoreLocator/js/form/element/visible_in_storelocator
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Is visible on store locator page</label>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+
+        </field>
+
+
+        <field name="display_order" formElement="input" sortOrder="20">
+
+
+            <settings>
+                <additionalClasses>
+                    <class name="depends_visible_in_storelocator">true</class>
+                </additionalClasses>
+                <validation>
+                    <rule name="validate-number" xsi:type="boolean">true</rule>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>number</dataType>
+                <label translate="true">Default order of display</label>
+                <notice><![CDATA[
+                    When customer doesn't allow geolocation, then the default order of display is used
+                    ]]>
+                </notice>
+            </settings>
+
+        </field>
+
+        <field name="image" sortOrder="30" formElement="imageUploader">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">image</item>
+                </item>
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="depends_visible_in_storelocator">true</class>
+                </additionalClasses>
+                <elementTmpl>ui/form/element/uploader/image</elementTmpl>
+                <dataType>string</dataType>
+                <label translate="true">Image</label>
+                <visible>true</visible>
+                <required>false</required>
+            </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+
+                        <required>false</required>
+                        <uploaderConfig>
+                            <param xsi:type="url" name="url" path="storelocator/source/image_upload"/>
+                        </uploaderConfig>
+                        <previewTmpl>Magento_Catalog/image-preview</previewTmpl>
+                        <openDialogTitle>Media Gallery</openDialogTitle>
+                        <initialMediaGalleryOpenSubpath>source/image</initialMediaGalleryOpenSubpath>
+                        <allowedExtensions>jpg jpeg gif png</allowedExtensions>
+                        <maxFileSize>4194304</maxFileSize>
+                        <isMultipleFiles>true</isMultipleFiles>
+                    </settings>
+                </imageUploader>
+            </formElements>
+        </field>
+        <field name="use_config_description" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">1</item>
+                    <item name="component" xsi:type="string">
+                        Wyomind_StoreLocator/js/form/element/use_config_description
+                    </item>
+                </item>
+
+
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="depends_visible_in_storelocator">true</class>
+
+                </additionalClasses>
+                <dataType>boolean</dataType>
+                <label translate="true">Use default description template</label>
+                <notice>Default template is defined in stores > configuration > Wyomind > Store Locator
+                </notice>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="description" template="ui/form/field" formElement="wysiwyg" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="wysiwygConfigData" xsi:type="array">
+                        <item name="height" xsi:type="string">100px</item>
+                        <item name="add_variables" xsi:type="boolean">true</item>
+                        <item name="add_widgets" xsi:type="boolean">false</item>
+                        <item name="add_images" xsi:type="boolean">true</item>
+                        <item name="add_directives" xsi:type="boolean">true</item>
+                    </item>
+
+                </item>
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="depends_visible_in_storelocator">true</class>
+                    <class name="depends_use_config_description">true</class>
+                </additionalClasses>
+                <label translate="true">Description</label>
+                <dataType>text</dataType>
+                <dataScope>description</dataScope>
+                <notice><![CDATA[
+                    Html and css code are supported.<br/>
+                    Available variables : {{code}}, {{name}}, {{phone}}, {{email}}, {{address_1}}, {{address_2}},
+                    {{city}}, {{state}}, {{country}}, {{zipcode}}, {{business_hours}}, {{days_off}}, {{image}}, {{link}},
+                    {{google_map}}
+                    And all custom attributes configured, eg: {{my_custom_attribute}}
+                    ]]>
+                </notice>
+            </settings>
+            <formElements>
+                <wysiwyg class="\Magento\Ui\Component\Form\Element\Wysiwyg">
+                    <settings>
+                        <rows>8</rows>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
+        </field>
+
+    </fieldset>
+    <fieldset name="page" sortOrder="17">
+        <settings>
+            <label translate="true">Store Page settings</label>
+            <collapsible>true</collapsible>
+            <opened>false</opened>
+            <dataScope>general</dataScope>
+        </settings>
+        <field name="enable_page" formElement="checkbox">
+
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">1</item>
+                    <item name="component" xsi:type="string">
+                        Wyomind_StoreLocator/js/form/element/enable_page
+                    </item>
+                </item>
+
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Enable store page</label>
+
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+
+
+        </field>
+        <field name="url_key" formElement="input" sortOrder="20">
+            <settings>
+                <additionalClasses>
+                    <class name="depends_enable_page">true</class>
+                </additionalClasses>
+                <validation>
+                    <rule name="validate-xml-identifier" xsi:type="boolean">true</rule>
+
+                </validation>
+                <dataType>url</dataType>
+                <label translate="true">Url key</label>
+            </settings>
+        </field>
+        <field name="use_config_page" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">1</item>
+                    <item name="component" xsi:type="string">
+                        Wyomind_StoreLocator/js/form/element/use_config_page
+                    </item>
+                </item>
+
+
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="depends_enable_page">true</class>
+                </additionalClasses>
+                <dataType>boolean</dataType>
+                <label translate="true">Use default page template</label>
+                <notice>Default template is defined in stores > configuration > Wyomind > Store Locator
+                </notice>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="page" template="ui/form/field" formElement="wysiwyg" sortOrder="50">
+
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="wysiwygConfigData" xsi:type="array">
+                        <item name="height" xsi:type="string">100px</item>
+                        <item name="add_variables" xsi:type="boolean">true</item>
+                        <item name="add_widgets" xsi:type="boolean">false</item>
+                        <item name="add_images" xsi:type="boolean">true</item>
+                        <item name="add_directives" xsi:type="boolean">true</item>
+                    </item>
+
+                </item>
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="depends_enable_page">true</class>
+                    <class name="depends_use_config_page">true</class>
+                </additionalClasses>
+                <label translate="true">Page content</label>
+                <dataType>text</dataType>
+                <dataScope>page</dataScope>
+                <notice><![CDATA[
+                    Html and css code are supported.<br/>
+                    Available variables : {{code}}, {{name}}, {{phone}}, {{email}}, {{address_1}}, {{address_2}},
+                    {{city}}, {{state}}, {{country}}, {{zipcode}}, {{business_hours}}, {{days_off}}, {{image}}, {{link}},
+                    {{google_map}}
+                    And all custom attributes configured, eg: {{my_custom_attribute}}
+                    ]]>
+                </notice>
+            </settings>
+            <formElements>
+                <wysiwyg class="\Magento\Ui\Component\Form\Element\Wysiwyg">
+                    <settings>
+                        <rows>8</rows>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
+        </field>
+
+
+    </fieldset>
+    <fieldset name="opening_closing" sortOrder="18">
+        <settings>
+            <label translate="true">Business hours</label>
+            <collapsible>true</collapsible>
+            <opened>false</opened>
+            <dataScope>general</dataScope>
+        </settings>
+        <container name="hours_container" sortOrder="10">
+            <htmlContent name="gmap">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="additionalClasses" xsi:type="array">
+                            <item name="gmap-container" xsi:type="boolean">true</item>
+                            <item name="admin__field" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </argument>
+                <argument name="block" xsi:type="object">Wyomind\StoreLocator\Block\Adminhtml\Source\Edit\Hours
+                </argument>
+
+            </htmlContent>
+            <field name="business_hours" formElement="hidden" sortOrder="1"></field>
+        </container>
+        <field name="days_off" formElement="textarea" sortOrder="20">
+            <settings>
+                <label translate="true">Days off</label>
+                <notice translate="true">Each day on a new line formatted as follows: yyyy-mm-dd HH:ii-HH:ii
+                    Examples:
+                    2019-01-01, closed on the 1st of January 2019,
+                    2020-12-24 16:30-20:00, closed on the 24th of December 2020 from 4:30PM to 8:00PM,
+                    2020-12-25, closed on the 25th of December 2020
+                </notice>
+            </settings>
+
+        </field>
+    </fieldset>
+    <fieldset name="address" sortOrder="30">
+
+        <field name="street" formElement="input" sortOrder="50">
+            <settings>
+                <label translate="true">Street</label>
+            </settings>
+        </field>
+
+        <field name="street_additional" formElement="input" sortOrder="51">
+            <settings>
+                <label translate="true">Street (additionnal)</label>
+            </settings>
+        </field>
+
+
+    </fieldset>
+
+    <fieldset name="additional_data" sortOrder="40" class="Wyomind\StoreLocator\Ui\Component\Form\Attribute">
+        <settings>
+            <label translate="true">Additional Data</label>
+            <opened>false</opened>
+            <collapsible>true</collapsible>
+            <dataScope>general</dataScope>
+        </settings>
+        <container name="no_additional_field_notice">
+
+            <htmlContent name="gmap">
+
+                <argument name="block" xsi:type="object">
+                    Wyomind\StoreLocator\Block\Adminhtml\Source\Edit\NoAdditionalFields
+                </argument>
+
+            </htmlContent>
+        </container>
+
+    </fieldset>
+</form>

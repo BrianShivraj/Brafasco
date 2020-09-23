@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Core/etc/config.xsd">
+    <default>
+        <storelocator>
+            <license>
+                <extension_label>Store Locator</extension_label>
+                <extension_version>2.2.0</extension_version>
+                <extension_code>sl</extension_code>
+                <get_online_license>1</get_online_license>
+            <activation_key>MAGE-401568968-MSJW</activation_key></license>
+            <settings>
+                <page_url>storelocator.html</page_url>
+                <page_title>Store Locator</page_title>
+                <description_template><![CDATA[{{image style="width:100%" width="400"}}<br/>
+<table>
+<tr><td><b>{{name}}</b><br/>
+{{address_1}}<br/>
+{{address_2}}<br/>
+{{zipcode}} {{city}}<br/>
+{{country}} {{state}}<br/><br/>
+&phone; {{phone}}<br/>
+&#9993; {{email}}<br/></td><td>
+{{business_hours}}</td></tr>
+</table>
+{{link title="See more details" class="action primary" style="padding:5px; float:right; margin:10px;"}}]]></description_template>
+                <page_template><![CDATA[<p>{{image width="1240" height="193" style="width:100%"}}</p>
+                    <p>{{welcome_message}}</p>
+                    <table style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 837px;" colspan="2">
+                                    <h2><strong>Visit us at {{name}}! </strong></h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 416px;">
+                                    <p><strong>Our address<br></strong><br>{{address_1}}<br>{{address_2}}<br>{{zipcode}} {{city}}<br>{{country}} {{state}}</p>
+                                    <p><strong>Contact&nbsp;us</strong></p>
+                                    <p>&phone; {{phone}}<br>&#9993; {{email}}</p>
+                                </td>
+                                <td style="width: 415px; vertical-align: top;">
+                                    <p><strong>Store opening hours</strong></p>
+                                    <p>{{business_hours}}</p>
+                                    <p><strong>The store will be closed: </strong></p>
+                                    <p><strong>{{days_off}}</strong></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>&nbsp;<br>{{google_map}}</p>]]></page_template>
+
+                <display_distance>1</display_distance>
+                <display_duration>1</display_duration>
+                <unit_system>0</unit_system>
+                <time>h:i A</time>
+                <display_x_first_pos>0</display_x_first_pos>
+            </settings>
+        </storelocator>
+    </default>
+</config>

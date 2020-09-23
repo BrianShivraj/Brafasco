@@ -1,0 +1,97 @@
+<?php
+/**
+ * Copyright © 2019 Wyomind. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+/* @var \Wyomind\StoreLocator\Helper\Data $helper */
+/* @var \Wyomind\StoreLocator\Block\Store $block */
+
+$helper=$this->helper('Wyomind\StoreLocator\Helper\Data');
+echo $helper->getGoogleMapsApiScript();
+?>
+<div class="col-xs-12 col-sm-3 col-md-3"><reference name="left">
+       <block class="Magento\Cms\Block\Block" name="sidebar_services ">
+            <action method="setBlockId"><block_id>sidebar_services </block_id></action>
+        </block>
+</reference></div>
+<div class="container col-xs-12 col-sm-9 col-md-9  page-border">
+<div id="storelocator-<?= $block->getSource()->getSourceCode(); ?>" class="storelocator-page">
+    <?php
+    echo $helper->parseTemplate($block->getSource(), "page",  $block->getUseConfigPage())
+    ?>
+</div>
+
+<!-- Google Map -->
+<div id="dirRendererBlock">
+    <div id="direction_title">
+        <h3><?php echo __('Your directions') ?></h3>
+        <span><a id="close_btn" class="render_tool" href="javascript:void(0)"><?php echo __('Close') ?></a></span> |
+        <span><a class="render_tool" href="javascript:print()"><?php echo __('Print') ?></a>  </span>
+    </div>
+    <div id="directions"></div>
+</div>
+</div>
+<script>
+    require(['jquery', 'storelocator'], function ($, storelocator) {
+        'use strict';
+        storelocator.W_GP = {
+            strings: {
+                getDirections: '<?php echo __("Get Directions"); ?>',
+                showOnGoogleMap: '<?php echo __("Show on Google Map"); ?>',
+                from: '<?php echo __("From"); ?>',
+                noStoreLocated: '<?php echo __("No store located"); ?>',
+                youAreHere: '<?php echo __("You are here"); ?>',
+                theClosestStoreIs: '<?php echo __("The nearest store is"); ?>',
+                myPreferredStoreIs: '<?php echo __("Your preferred store is"); ?>',
+                myPreferredStore: '<?php echo __("Your preferred store"); ?>',
+                noResultFound: '<?php echo __("No result found."); ?>',
+                unableToFindYourLocation: '<?php echo __("Unable to find your location"); ?>',
+                distanceCalculationFailed: '<?php echo __("Distance calculation failed"); ?>',
+                showMyLocation: '<?php echo __("show my location"); ?>',
+                changeMyLocation: '<?php echo __("change my location"); ?>',
+                yourLocation: '<?php echo __("Your location"); ?>',
+                findMe: '<?php echo __("Go!"); ?>',
+                enterYourLocation: '<?php echo __("Enter your location (city, address, zipcode...)"); ?>',
+                setANewLocation: '<?php echo __("Set a new location"); ?>',
+                youDirections: '<?php echo __("Your directions"); ?>',
+                close: '<?php echo __("Close"); ?>',
+                print: '<?php echo __("Print"); ?>',
+                searchingYourLocation: '<?php echo __("Searching your location"); ?>',
+                allOurStoreLocations: '<?php echo __("All our store locations"); ?>',
+                selectACountry: '<?php echo __("Select a country"); ?>',
+                allCountries: '<?php echo __("All countries"); ?>',
+                selectStore: '<?php echo __("Choose this store"); ?>'
+            },
+            myAddress: null
+        };
+
+        storelocator.nbStoresToDisplay = "<?php echo $block->getNbStoresToDisplay(); ?>";
+        storelocator.sources = <?php echo $block->getJsonData(); ?>;
+
+        storelocator.displayDistance = "<?php echo $block->getDisplayDistance(); ?>";
+        storelocator.displayDuration = "<?php echo $block->getDisplayDuration(); ?>";
+        storelocator.unitSystem = "<?php echo $block->getUnitSystem(); ?>";
+
+        storelocator.initialize('<?= $block->getSource()->getSourceCode()?>');
+
+        $(document).on("store_selected_pas", function (evt, id) {
+            storelocator.displayStore(storelocator.getStoreIndexById(id));
+        });
+
+        $(document).on("click", ".go-to-source", function () {
+            storelocator.displayStore(storelocator.getStoreIndexById($(this).attr('id')));
+        });
+
+        $(document).on("change", "#country_place", function () {
+            storelocator.updateList();
+        });
+
+        $(document).on('click', '#close_btn', function () {
+            storelocator.closeDirection();
+        });
+        $(document).on('preferred-store-selected', function (evt, index) {
+            storelocator.displayStore(index);
+        });
+    });
+</script>
+<!-- /Google Map -->

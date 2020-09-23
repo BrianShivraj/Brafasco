@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © 2019 Wyomind. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+/* @var \Wyomind\StoreLocator\Block\Adminhtml\Source\Edit\Gmap $block ; */
+
+?>
+
+<div class="admin__field-label">
+    <label>
+        <span><?= __("Find the coordinates with Google Map"); ?></span>
+    </label>
+</div>
+
+<div id="gmap" class="admin__field-label" data-mage-init='{"Wyomind_StoreLocator_Gmap":{}}'></div>
+
+<script src="<?php echo "//maps.googleapis.com/maps/api/js?v=3&key=" . $block->getGoogleApiKey(); ?>"></script>
+<script>
+    require(["jquery"], function ($) {
+        setTimeout(function () {
+            $('#gmap').trigger('contentUpdated');
+        }, 1000)
+    })
+
+</script>
+

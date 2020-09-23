@@ -329,6 +329,8 @@ return [
         'Dotdigitalgroup_Chat' => 1,
         'Dotdigitalgroup_Enterprise' => 1,
         'Fastly_Cdn' => 1,
+        'IWD_All' => 1,
+        'IgniteDigital_Contactus' => 1,
         'IgniteDigital_TopMenu' => 1,
         'Klarna_Core' => 1,
         'Klarna_Ordermanagement' => 1,
@@ -338,6 +340,8 @@ return [
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
         'Vertex_AddressValidation' => 1,
+        'Wyomind_Framework' => 1,
+        'Wyomind_StoreLocator' => 1,
         'Yotpo_Yotpo' => 1
     ]
 ];

@@ -1,0 +1,107 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var \Magento\Contact\Block\ContactForm $block */
+?>
+
+<form class="form contact"
+      action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+      id="contact-form"
+      method="post"
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+  <div class="field name required no-label">
+      <label class="label" for="name"><span><?php /* @escapeNotVerified */ echo __('Name') ?></span></label>
+      <div class="control">
+          <input name="name" id="name" placeholder="Name" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+      </div>
+  </div>
+<div class="field email required no-label">
+    <label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
+    <div class="control">
+        <input name="email" id="email" placeholder="Email Address" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+    </div>
+</div>
+<div class="field province no-label">
+    <label class="label" for="province"><span><?php /* @escapeNotVerified */ echo __('Province') ?></span></label>
+    <div class="control">
+      <select name="department" required placeholder="Province"
+        style="background-color: rgba(0, 0, 0, 0);background-position-x: right;background-position-y: 5px;background-repeat: no-repeat;background-attachment: scroll;background-image: url(../media/wysiwyg/down-arrow.png);background-size: auto;background-origin: padding-box;background-clip: border-box;-moz-appearance: none;"
+        style="background-color: rgba(0, 0, 0, 0);background-position-x: right;background-position-y: 5px;background-repeat: no-repeat;background-attachment: scroll;background-image: url(&quot;http://magento.local/media/wysiwyg/down-arrow.png&quot;);background-size: auto;background-origin: padding-box;background-clip: border-box;-moz-appearance: none;"
+      >
+                 <option disabled selected hidden value=""><?= $block->escapeHtml(__('Province')) ?></option>
+                 <option><?= $block->escapeHtml(__('Alberta')) ?></option>
+                 <option><?= $block->escapeHtml(__('British Columbia')) ?></option>
+                 <option><?= $block->escapeHtml(__('Manitoba')) ?></option>
+                 <option><?= $block->escapeHtml(__('New Brunswick')) ?></option>
+                 <option><?= $block->escapeHtml(__('Newfoundland and Labrador')) ?></option>
+                 <option><?= $block->escapeHtml(__('Northwest Territories')) ?></option>
+                 <option><?= $block->escapeHtml(__('Nova Scotia')) ?></option>
+                 <option><?= $block->escapeHtml(__('Nunavut')) ?></option>
+                 <option><?= $block->escapeHtml(__('Ontario')) ?></option>
+                 <option><?= $block->escapeHtml(__('Prince Edward Island')) ?></option>
+                 <option><?= $block->escapeHtml(__('Quebec')) ?></option>
+                 <option><?= $block->escapeHtml(__('Saskatchewan')) ?></option>
+                 <option><?= $block->escapeHtml(__('Yukon')) ?></option>
+             </select>
+    </div>
+</div>
+<div class="field city no-label">
+    <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
+    <div class="control">
+        <input name="city" id="city" placeholder="City" title="<?php /* @escapeNotVerified */ echo __('City') ?>" value="" class="input-text" type="text" />
+    </div>
+</div>
+<div class="field telephone no-label">
+    <label class="label" for="telephone"><span><?php /* @escapeNotVerified */ echo __('Phone Number') ?></span></label>
+    <div class="control">
+        <input name="telephone" id="telephone" placeholder="Phone" title="<?php /* @escapeNotVerified */ echo __('Phone Number') ?>" value="" class="input-text" type="text" />
+    </div>
+</div>
+<div class="field comment required no-label">
+    <label class="label" for="comment"><span><?php /* @escapeNotVerified */ echo __('What’s on your mind?') ?></span></label>
+    <div class="control">
+        <textarea name="comment" id="comment" placeholder="Message" title="<?php /* @escapeNotVerified */ echo __('What’s on your mind?') ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
+    </div>
+</div>
+        <?= $block->getChildHtml('form.additional.info') ?>
+    </fieldset>
+<?php
+    echo $block->getLayout()
+        ->createBlock('MSP\ReCaptcha\Block\Frontend\ReCaptcha',
+            'msp-recaptcha',
+            ['data' =>
+                [
+                    'jsLayout' =>
+                    [
+                        'components' =>
+                        [
+                            'msp-recaptcha' =>
+                            [
+                                'component' => 'MSP_ReCaptcha/js/reCaptcha',
+                                'zone' => 'contact'
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        )
+        ->setTemplate('MSP_ReCaptcha::msp_recaptcha.phtml')
+        ->toHtml();
+    ?>
+   <div class="actions-toolbar">
+        <div class="primary" style="float: right;">
+   <div class="actions-toolbar" style="float: right;">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="yellow-btn">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>

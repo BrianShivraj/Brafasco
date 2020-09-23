@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Wyomind\StoreLocator\Api\Data\SourceInterface" type="Wyomind\StoreLocator\Model\Source"/>
+    <preference for="Wyomind\StoreLocator\Api\Data\AttributesValuesInterface" type="Wyomind\StoreLocator\Model\AttributesValues"/>
+
+    <preference for="Wyomind\StoreLocator\Api\SourceRepositoryInterface" type="Wyomind\StoreLocator\Model\Source\Repository"/>
+    <preference for="Wyomind\StoreLocator\Api\AttributesRepositoryInterface" type="Wyomind\StoreLocator\Model\Attributes\Repository"/>
+
+    <type name="Magento\InventoryApi\Api\SourceRepositoryInterface">
+        <plugin name="save_source" type="Wyomind\StoreLocator\Plugin\Api\SourceRepositoryInterface\Save" sortOrder="10"/>
+        <plugin name="get_source" type="Wyomind\StoreLocator\Plugin\Api\SourceRepositoryInterface\Get" sortOrder="10"/>
+    </type>
+
+
+
+
+
+</config>

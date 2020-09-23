@@ -41,7 +41,8 @@
 //  Tables
 //  ---------------------------------------------
 
-@table-cell__padding-vertical: 11px;
+@table-cell__padding-vertical: 0 !important;
+@table-cell__padding-horizontal: 0 !important;
 @table-cell-stripped__background-color: @table-cell__hover__background-color;
 @table-responsive-th__background-color: @table-cell-stripped__background-color;
 @table-responsive-cell__padding: @indent__xs @indent__s;
@@ -295,6 +296,7 @@
 @popup__border: 1px solid @color-gray68;
 @popup-title-headings__level: h2;
 
+
 //  Popup icons
 @popup-icon-font__size: 16px;
 @popup-icon-font__line-height: 16px;
@@ -366,3 +368,4 @@ Theme primary button override
 @color-gray82: #e1e1e1;
 
 @import "_custom.less";
+@import "_font-awesome.less";

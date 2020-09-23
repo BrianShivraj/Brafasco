@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+ Copyright © 2019 Wyomind. All rights reserved.
+ See LICENSE.txt for license details.
+-->
+
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+
+                <resource id="Wyomind_StoreLocator::acl" title="Store Locator" sortOrder="10">
+                    <resource id="Wyomind_StoreLocator::config" title="Manage module configuration" sortOrder="10"/>
+                    <resource id="Wyomind_StoreLocator::source" title="Source Management" sortOrder="20">
+
+                        <resource id="Wyomind_StoreLocator::source_delete" title="Delete source" sortOrder="10"/>
+                        <resource id="Wyomind_StoreLocator::source_import" title="Import source" sortOrder="20"/>
+                        <resource id="Wyomind_StoreLocator::source_export" title="Export source" sortOrder="30"/>
+                    </resource>
+                    <resource id="Wyomind_StoreLocator::attribute" title="Source Attribute Management" sortOrder="30">
+                        <resource id="Wyomind_StoreLocator::attribute_list" title="List all attributes" sortOrder="10"/>
+                        <resource id="Wyomind_StoreLocator::attribute_view" title="View attribute" sortOrder="20"/>
+                        <resource id="Wyomind_StoreLocator::attribute_edit" title="Edit attribute" sortOrder="30"/>
+                        <resource id="Wyomind_StoreLocator::attribute_create" title="Create attribute" sortOrder="40"/>
+                        <resource id="Wyomind_StoreLocator::attribute_delete" title="Delete attribute" sortOrder="50"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,153 @@
+Back,Back
+"Delete attribute","Delete attribute"
+"Are you sure you want to delete the attribute?","Are you sure you want to delete the attribute?"
+Reset,Reset
+"Save and Continue Edit","Save and Continue Edit"
+Save,Save
+"Delete source","Delete source"
+"Are you sure you want to do this?","Are you sure you want to do this?"
+Monday,Monday
+Tuesday,Tuesday
+Wednesday,Wednesday
+Thursday,Thursday
+Friday,Friday
+Saturday,Saturday
+Sunday,Sunday
+"Lunch hours","Lunch hours"
+"Export a CSV file","Export a CSV file"
+"Import a CSV file","Import a CSV file"
+"Get Directions","Get Directions"
+"Show on Google Map","Show on Google Map"
+"Source > ","Source > "
+"The attribute has been deleted.","The attribute has been deleted."
+"We can't find an attribute to delete.","We can't find an attribute to delete."
+"This attribute no longer exists.","This attribute no longer exists."
+"Edit Attribute: ","Edit Attribute: "
+"New Attribute","New Attribute"
+Attributes,Attributes
+"The attribute has been saved.","The attribute has been saved."
+"'Unable to save the attribute. ' .","'Unable to save the attribute. ' ."
+"The source has been deleted.","The source has been deleted."
+"We can't find the source to delete.","We can't find the source to delete."
+"Wrong file type (","Wrong file type ("
+").<br>Choose a csv file.",").<br>Choose a csv file."
+" places have been imported."," places have been imported."
+from,from
+to,to
+"The attribute code <i>%1</i> is reserved.","The attribute code <i>%1</i> is reserved."
+"An attribute with the same code already exists","An attribute with the same code already exists"
+Edit,Edit
+Delete,Delete
+"Delete an attribute","Delete an attribute"
+"Are you sure you want to delete the attribute <b>%1</b> [<i>%2</i>]?","Are you sure you want to delete the attribute <b>%1</b> [<i>%2</i>]?"
+"Find the coordinates with Google Map","Find the coordinates with Google Map"
+"There is no additional attributes defined yet","There is no additional attributes defined yet"
+"Csv File To Import","Csv File To Import"
+"Your directions","Your directions"
+Close,Close
+Print,Print
+From,From
+"No store located","No store located"
+"You are here","You are here"
+"The nearest store is","The nearest store is"
+"Your preferred store is","Your preferred store is"
+"Your preferred store","Your preferred store"
+"No result found.","No result found."
+"Unable to find your location","Unable to find your location"
+"Distance calculation failed","Distance calculation failed"
+"show my location","show my location"
+"change my location","change my location"
+"Your location","Your location"
+Go!,Go!
+"Enter your location (city, address, zipcode...)","Enter your location (city, address, zipcode...)"
+"Set a new location","Set a new location"
+"Searching your location","Searching your location"
+"All our store locations","All our store locations"
+"Select a country","Select a country"
+"All countries","All countries"
+"Choose this store","Choose this store"
+"Select a country :","Select a country :"
+"Preferred store","Preferred store"
+""" ""Backorder",""" ""Backorder"
+""" ""In stock",""" ""In stock"
+""" ""Out of Stock",""" ""Out of Stock"
+Wyomind,Wyomind
+"Store Locator","Store Locator"
+License,License
+"Extension version","Extension version"
+"Activation key","Activation key"
+"License Status","License Status"
+"Global Settings","Global Settings"
+"Enable Store Locator","Enable Store Locator"
+Settings,Settings
+"Google Api key","Google Api key"
+"<a target=""_blank"" href=""https://developers.google.com/maps/documentation/javascript/get-api-key"">Get your Google api key</a>","<a target=""_blank"" href=""https://developers.google.com/maps/documentation/javascript/get-api-key"">Get your Google api key</a>"
+"Store Locator page url","Store Locator page url"
+"Url of the store locator page","Url of the store locator page"
+"Store Locator page title","Store Locator page title"
+"Meta title and Title of the store locator page","Meta title and Title of the store locator page"
+"Number of nearest locations to display","Number of nearest locations to display"
+"The user must approve the geolocation first.<br/>0 means no limit.","The user must approve the geolocation first.<br/>0 means no limit."
+"Display the distance from the customer location to the store in the store title","Display the distance from the customer location to the store in the store title"
+"Display the duration from the customer location to the store in the store title","Display the duration from the customer location to the store in the store title"
+"Unit systems for the distance","Unit systems for the distance"
+"Store description template","Store description template"
+"Html and css code are supported.<br/>
+                        Available variables : {{code}}, {{name}}, {{phone}}, {{email}}, {{address_1}}, {{address_2}},
+                        {{city}}, {{state}}, {{country}}, {{zipcode}}, {{business_hours}}, {{days_off}}, {{image}}, {{link}},
+                        {{google_map}}
+                        And all custom attributes configured, eg: {{my_custom_attribute}}","Html and css code are supported.<br/>
+                        Available variables : {{code}}, {{name}}, {{phone}}, {{email}}, {{address_1}}, {{address_2}},
+                        {{city}}, {{state}}, {{country}}, {{zipcode}}, {{business_hours}}, {{days_off}}, {{image}}, {{link}},
+                        {{google_map}}
+                        And all custom attributes configured, eg: {{my_custom_attribute}}"
+"Store Page template","Store Page template"
+"Time format to display","Time format to display"
+"Store View","Store View"
+"Customer Groups","Customer Groups"
+"Store location","Store location"
+Latitude,Latitude
+Longitude,Longitude
+"Store Locator settings","Store Locator settings"
+"Is visible on store locator page","Is visible on store locator page"
+"Default order of display","Default order of display"
+Image,Image
+"Use default description template","Use default description template"
+Description,Description
+"Store Page settings","Store Page settings"
+"Enable store page","Enable store page"
+"Url key","Url key"
+"Use default page template","Use default page template"
+"Page content","Page content"
+"Business hours","Business hours"
+"Days off","Days off"
+"Each day on a new line formatted as follows: yyyy-mm-dd HH:ii-HH:ii
+                    Examples:
+                    2019-01-01, closed on the 1st of January 2019,
+                    2020-12-24 16:30-20:00, closed on the 24th of December 2020 from 4:30PM to 8:00PM,
+                    2020-12-25, closed on the 25th of December 2020
+                ","Each day on a new line formatted as follows: yyyy-mm-dd HH:ii-HH:ii
+                    Examples:
+                    2019-01-01, closed on the 1st of January 2019,
+                    2020-12-24 16:30-20:00, closed on the 24th of December 2020 from 4:30PM to 8:00PM,
+                    2020-12-25, closed on the 25th of December 2020
+                "
+Street,Street
+"Street (additionnal)","Street (additionnal)"
+"Additional Data","Additional Data"
+"Visible in Store Locator","Visible in Store Locator"
+Yes,Yes
+No,No
+"Use the default description template","Use the default description template"
+"Store page enabled","Store page enabled"
+yes,yes
+"Url Key","Url Key"
+Attribute,Attribute
+Code,Code
+Label,Label
+Type,Type
+Textarea,Textarea
+Wysiwyg,Wysiwyg
+Text,Text
+"Add a new Attribute","Add a new Attribute"
+ID,ID

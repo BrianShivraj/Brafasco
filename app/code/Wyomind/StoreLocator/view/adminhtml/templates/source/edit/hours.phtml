@@ -1,0 +1,36 @@
+<?php
+/* @var Wyomind\StoreLocator\Block\Adminhtml\Source\Edit\Hours $block */
+?>
+<div class="admin__field-label">
+    <label>
+        <span></span>
+    </label>
+</div>
+<div id="business-hours-selector" class="admin__field-label">
+    <?php echo $block->getElementHtml(); ?>
+</div>
+<script>
+
+
+    require(['jquery', 'Wyomind_StoreLocator_Hours'], function ($, hours) {
+        'use strict';
+        var elementId = 'source';
+
+        setTimeout(hours.initializeGMap, 5000);
+
+        // initialize hours
+        hours.initializeHours(elementId);
+
+        $(document).on('click', '.source_day', function () {
+            hours.activeField(this, elementId);
+        });
+
+        $(document).on('click', '.source_lunch', function () {
+            hours.activeFieldLunch(this, elementId);
+        });
+
+        $(document).on('change', '.hours_summary', function () {
+            hours.summary(elementId);
+        });
+    });
+</script>

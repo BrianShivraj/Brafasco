@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+
+        <add id="Wyomind_StoreLocator::attributes"
+             parent="Magento_InventoryAdminUi::inventory"
+             module="Wyomind_StoreLocator"
+             title="Source Attributes"
+             sortOrder="2"
+             resource="Wyomind_StoreLocator::attribute_list"
+             action="storelocator/attributes" />
+    </menu>
+</config>

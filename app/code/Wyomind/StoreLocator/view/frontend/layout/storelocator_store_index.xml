@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Wyomind_StoreLocator::css/store.css"/>
+        <title>Store Locator</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Wyomind\StoreLocator\Block\Store" name="storelocator.store"
+                   template="Wyomind_StoreLocator::store.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

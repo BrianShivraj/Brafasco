@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Wyomind\StoreLocator\Block\Widget\StoreLocator" id="wyomind_storelocator">
+        <label>Store Locator</label>
+        <description>Link to the Store Locator Page</description>
+    </widget>
+</widgets>

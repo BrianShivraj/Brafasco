@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../../../../app/code/Magento/Config/etc/system_file.xsd">
+
+    <system>
+
+        <!-- master tab -->
+
+        <tab id="wyomind" translate="label" sortOrder="1000000" class='wyomind-logo'>
+            <label>Wyomind</label>
+        </tab>
+
+
+        <section id="storelocator" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label><![CDATA[Store Locator]]></label>
+            <tab>wyomind</tab>
+            <resource>Wyomind_StoreLocator::config</resource>
+
+            <!-- License -->
+
+            <group id="license" translate="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>License</label>
+                <field id="extension_version" translate="label" type="label" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Extension version</label>
+                </field>
+                <field id="activation_key" translate="label comment" type="label" sortOrder="110" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Activation key</label>
+                    <frontend_model>Wyomind\Framework\Block\Adminhtml\System\Config\Form\Field\ActivationKey</frontend_model>
+                </field>
+                <field id="license_status" translate="label comment" type="label" sortOrder="110" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>License Status</label>
+                    <frontend_model>Wyomind\Framework\Block\Adminhtml\System\Config\Form\Field\LicenseStatus</frontend_model>
+                </field>
+            </group>
+            <group id="global" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Global Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable Store Locator</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="settings" translate="label" sortOrder="200" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Settings</label>
+                <field id="googleapi" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Google Api key</label>
+                    <comment>
+                        <![CDATA[<a target="_blank" href="https://developers.google.com/maps/documentation/javascript/get-api-key">Get your Google api key</a>]]></comment>
+                </field>
+                <field id="page_url" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Store Locator page url</label>
+                    <comment><![CDATA[Url of the store locator page]]></comment>
+                    <!--<validate>validate-url</validate>-->
+                </field>
+                <field id="page_title" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Store Locator page title</label>
+                    <comment><![CDATA[Meta title and Title of the store locator page]]></comment>
+                </field>
+                <field id="display_x_first_pos" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Number of nearest locations to display</label>
+                    <comment><![CDATA[The user must approve the geolocation first.<br/>0 means no limit.]]></comment>
+                </field>
+                <field id="display_distance" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Display the distance from the customer location to the store in the store title</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_duration" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Display the duration from the customer location to the store in the store title</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="unit_system" translate="label comment" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Unit systems for the distance</label>
+                    <source_model>Wyomind\StoreLocator\Model\Config\Source\UnitSystem</source_model>
+                </field>
+                <field id="description_template" translate="label comment" type="editor" sortOrder="60"
+                       showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <frontend_model>Wyomind\StoreLocator\Block\Adminhtml\System\Config\Wysiwyg</frontend_model>
+                    <label>Store description template</label>
+                    <comment><![CDATA[Html and css code are supported.<br/>
+                        Available variables : {{code}}, {{name}}, {{phone}}, {{email}}, {{address_1}}, {{address_2}},
+                        {{city}}, {{state}}, {{country}}, {{zipcode}}, {{business_hours}}, {{days_off}}, {{image}}, {{link}},
+                        {{google_map}}
+                        And all custom attributes configured, eg: {{my_custom_attribute}}]]>
+                    </comment>
+                </field>
+                <field id="page_template" translate="label comment" type="editor" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <frontend_model>Wyomind\StoreLocator\Block\Adminhtml\System\Config\Wysiwyg</frontend_model>
+                    <label>Store Page template</label>
+                    <comment><![CDATA[Html and css code are supported.<br/>
+                        Available variables : {{code}}, {{name}}, {{phone}}, {{email}}, {{address_1}}, {{address_2}},
+                        {{city}}, {{state}}, {{country}}, {{zipcode}}, {{business_hours}}, {{days_off}}, {{image}}, {{link}},
+                        {{google_map}}
+                        And all custom attributes configured, eg: {{my_custom_attribute}}]]>
+                    </comment>
+                </field>
+                <field id="time" translate="label" type="text" sortOrder="70" showInDefault="1"   showInWebsite="1" showInStore="1">
+                    <label>Time format to display</label>
+                    <comment>
+                        <![CDATA[<span class="notice">Example : h:i A for 2:30 AM.
+                            <br>
+                            <br>
+                            <style>
+                                .date-format TD{
+                                    border:1px solid grey !important;
+                                    vertical-align:middle;
+                                    text-align: center;
+                                }
+                                .date-format .section {
+                                    background: none repeat scroll 0 0 #FC862E;
+                                    color: white;
+                                    font-weight: bold;
+                                }
+                            </style>
+                            <strong>The following characters are recognized in the time format</strong>
+                            <table style="width:auto;border:1px solid grey" class='date-format' >
+                                <thead>
+                                    <tr style="color:#676056;">
+                                        <th>Character</th>
+                                        <th>Description</th>
+                                        <th>Returned values</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbody">
+                                    <tr><td><em>a</em> <td>Lowercase Ante meridiem and Post meridiem</td><td> 	<em>am</em> or <em>pm</em></td></tr>
+                                    <tr><td><em>A</em> 	 <td>Uppercase Ante meridiem and Post meridiem</td><td>  	<em>AM</em> or <em>PM</em></td></tr>
+                                    <tr><td><em>g</em> <td> 	12-hour format of an hour without leading zeros </td><td> 	<em>1</em> through <em>12</em></td></tr>
+                                    <tr><td><em>G</em> <td> 	24-hour format of an hour without leading zeros </td><td> 	<em>0</em> through <em>23</em></td></tr>
+                                    <tr><td><em>h</em> <td> 	12-hour format of an hour with leading zeros</td><td>  	<em>01</em> through <em>12</em></td></tr>
+                                    <tr><td><em>H</em> <td> 	24-hour format of an hour with leading zeros </td><td> 	<em>00</em> through <em>23</em></td></tr>
+                                    <tr><td><em>i</em> <td> 	Minutes with leading zeros </td><td> 	<em>00</em> to <em>59</em></td></tr>
+                                    <tr><td><em>s</em>  <td>	Seconds, with leading zeros </td><td> 	<em>00</em> through <em>59</em></td></tr>
+                                </tbody>
+                            </table>
+                        </span>]]>
+                    </comment>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

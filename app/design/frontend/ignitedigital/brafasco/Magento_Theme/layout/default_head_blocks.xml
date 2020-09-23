@@ -7,12 +7,14 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <font src="fonts/FontAwesome.otf"/>
         <font src="fonts/fontawesome-webfont.svg"/>
         <font src="fonts/fontawesome-webfont.ttf"/>
         <font src="fonts/fontawesome-webfont.woff"/>
         <font src="fonts/fontawesome-webfont.woff2"/>
         <font src="fonts/FontAwesome.otf"/>
-    </head>
+         <link src="js/custom.js"/>
+         <link src="css/source/animate.min.css"/>
+        </head>
 </page>

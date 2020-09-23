@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+<!-- configuration file used for the Wyomind's demo store: https://demo2.wyomind.com -->
+
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+
+<config>
+    <login>StoreLocator</login>
+    <password>StoreLocator123</password>
+    <acl>
+        Magento_Backend::system
+        Wyomind_StoreLocator::acl
+        Wyomind_StoreLocator::config
+        Wyomind_StoreLocator::source
+        Wyomind_StoreLocator::source_delete
+        Wyomind_StoreLocator::source_import
+        Wyomind_StoreLocator::source_export
+        Wyomind_StoreLocator::attribute
+        Wyomind_StoreLocator::attribute_list
+        Wyomind_StoreLocator::attribute_view
+        Wyomind_StoreLocator::attribute_edit
+        Wyomind_StoreLocator::attribute_create
+        Wyomind_StoreLocator::attribute_delete
+        {{system/config}}
+        Magento_Backend::stores
+        Magento_Backend::stores_settings
+        Magento_InventoryApi::inventory
+        Magento_InventoryApi::source
+        Magento_InventoryApi::source_edit
+        Magento_InventoryApi::stock
+        Magento_InventoryApi::stock_edit
+        Magento_InventoryApi::stock_delete
+        Magento_InventoryApi::source_stock_link
+    </acl>
+    <scenarii>
+        <scenario type="frontend" id="storelocator" default="1">
+            <label>Store Locator</label>
+            <comment><![CDATA[]]></comment>
+            <actions>
+                <action type="landing_page">
+                    <param name="url">storelocator</param>
+                </action>
+            </actions>
+        </scenario>
+        <scenario type="backend" id="sources_grid">
+            <label>Manage Sources</label>
+            <comment><![CDATA[]]></comment>
+            <actions>
+                <action type="landing_page">
+                    <param name="url">Magento_InventoryApi::source</param>
+                </action>
+            </actions>
+        </scenario>
+        <scenario type="backend" id="custom_attributes">
+            <label>Custom Attributes</label>
+            <comment><![CDATA[]]></comment>
+            <actions>
+                <action type="landing_page">
+                    <param name="url">Wyomind_StoreLocator::attribute</param>
+                </action>
+            </actions>
+        </scenario>
+    </scenarii>
+</config>

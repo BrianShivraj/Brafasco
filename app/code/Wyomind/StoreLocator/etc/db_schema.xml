@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table comment="Wyomind Store Locator Table" engine="innodb" name="inventory_source_storelocator"
+           resource="default">
+        <column comment="Source Code" name="source_code_orig" nullable="false"
+                xsi:type="varchar"/>
+
+        <column comment="Customer group ids" default="0" name="customer_group_ids" nullable="true" xsi:type="varchar"/>
+        <column comment="Store views ids" default="0" name="store_ids" nullable="true" xsi:type="varchar"/>
+        <column comment="Additional street input" name="street_additional" nullable="true" xsi:type="text"/>
+        <column comment="Image of the store" name="image" nullable="true" xsi:type="text"/>
+        <column comment="Business Hours (json)" default="{}" name="business_hours" nullable="false" xsi:type="varchar"
+                length="900"/>
+        <column comment="Days off" name="days_off" nullable="true" xsi:type="text"/>
+        <column comment="Use default store page template" name="use_config_page" nullable="false"
+                xsi:type="int" default="1"/>
+        <column comment="Store page content" name="page" nullable="true" xsi:type="text"/>
+        <column comment="Use default store description template" name="use_config_description" nullable="false"
+                xsi:type="int" default="1"/>
+        <column comment="Store  visible on store locator" name="visible_in_storelocator" nullable="false"
+                xsi:type="int" default="0"/>
+        <column comment="Store page enabled" name="enable_page" nullable="false" xsi:type="int"
+                default="0"/>
+        <column comment="Store page url key" name="url_key" nullable="false" xsi:type="varchar"/>
+        <column comment="Display order" name="display_order" default="0" nullable="false" xsi:type="int"/>
+
+
+        <constraint xsi:type="foreign"
+                    referenceId="INVENTORY_SOURCE_STORELOCATOR_SOURCE_CODE_ORIG_INVENTORY_SOURCE_SOURCE_CODE"
+                    table="inventory_source_storelocator" column="source_code_orig" referenceTable="inventory_source"
+                    referenceColumn="source_code" onDelete="CASCADE"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="source_code_orig"/>
+        </constraint>
+
+    </table>
+    <table comment="Source Additional Attributes" engine="innodb" name="storelocator_attributes">
+        <column name="attribute_id" comment="Attribute ID" nullable="false" xsi:type="int" identity="true"/>
+        <column name="code" comment="Attribute code" length="255" nullable="false" xsi:type="varchar"/>
+        <column name="label" comment="Attribute label" length="255" nullable="false" xsi:type="varchar"/>
+        <column name="type" comment="Attribute type" default="0" nullable="false" xsi:type="int"/>
+
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="attribute_id"/>
+        </constraint>
+    </table>
+
+    <table comment="Source attributes values" engine="innodb" name="storelocator_attributes_values">
+        <column name="value_id" comment="Value ID" nullable="false" xsi:type="int" identity="true"/>
+        <column name="attribute_id" comment="Attribute ID" nullable="false" xsi:type="int"/>
+        <column name="source_code_orig" comment="Source code" length="255" nullable="false" xsi:type="varchar"/>
+        <column name="value" comment="Value" nullable="true" xsi:type="text"/>
+        <constraint xsi:type="foreign" referenceId="STORELOCATOR_ATTRIBUTES_VALUES_INVENTORY_SOURCE_SOURCE_CODE"
+                    table="storelocator_attributes_values" column="source_code_orig" referenceTable="inventory_source"
+                    referenceColumn="source_code" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="STORELOCATOR_ATTRIBUTES_VALUES_STORELOCATOR_ATTRIBUTES_ATTRIBUTE_ID"
+                    table="storelocator_attributes_values" column="attribute_id"
+                    referenceTable="storelocator_attributes"
+                    referenceColumn="attribute_id" onDelete="CASCADE"/>
+
+        <constraint xsi:type="unique" referenceId="UNIQ_STORELOCATOR_ATTRIBUTES_VALUES">
+            <column name="attribute_id"/>
+            <column name="source_code_orig"/>
+        </constraint>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="value_id"/>
+        </constraint>
+    </table>
+
+
+</schema>

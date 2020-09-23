@@ -1,0 +1,160 @@
+<?php
+/* @var \Wyomind\StoreLocator\Block\StoreLocator $block */
+/* @var \Wyomind\StoreLocator\Api\Data\SourceInterface $source */
+?>
+<?php if ($this->getRequest()->getModuleName() != "clickncollect") :
+    $helper=$this->helper('Wyomind\StoreLocator\Helper\Data');
+    echo $helper->getGoogleMapsApiScript();
+endif; ?>
+<div id="storelocator_box">
+    <div id="tools" class='hide-400'>
+        <span id="searching"><?php echo __('Searching your location'); ?></span>
+    </div>
+    <div id="map_canvas_storelocator" style="width:100%"
+         class='hide-400 <?php echo ($block->getData('canSelectPreferredStore')) ? "canSelectPreferredStore" : ""; ?>'></div>
+    <div id="storelocator" class="alone">
+        <div id="title">
+            <?php echo __('All our store locations'); ?>
+            <?php $countries=$block->getCountries(); ?>
+            <?php if (count($countries) > 1) : ?>
+                <div id="country_selection">
+                    <?php echo __('Select a country :'); ?>
+                    <select id="country_place">
+                        <option value="*">
+                            <?php echo __('All countries'); ?>
+                        </option>
+                        <?php foreach ($countries as $country): ?>
+                            <option value="<?php echo $country['code']; ?>">
+                                <?php echo $country['name']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div id="storelocator_scroll">
+            <?php $handlingFee=$block->getHelper()->getHandlingFee(); ?>
+            <?php foreach ($block->getSources() as $source) : ?>
+                <div class="source <?php echo $source->getCountryId(); ?>">
+                  <b>
+                                        <a
+                                           id="<?php echo $source->getSourceCode(); ?>"><?php echo $source->getName(); ?>
+
+                                        </a>
+                                    </b>
+
+
+                                                              <span class="label"><?php echo __('Preferred store'); ?></span>
+                                                              <?php if ($block->isClickNCollect()) : ?>
+                                                                  <?php if ($source->getPosHandlingFee() == 1 && $source->getPickupFee() > 0) : ?>
+                                                                      <span style="font-size:0.8em">(+ <?php echo $block->getCurrencySymbol() . $source->getPickupFee(); ?>
+                                                                          )</span>
+                                                                  <?php elseif ($handlingFee > 0): ?>
+                                                                      <span style="font-size:0.8em">(+ <?php echo $block->getCurrencySymbol() . $handlingFee; ?>
+                                                                          )</span>
+                                                                  <?php endif; ?>
+                                                              <?php endif; ?>
+                                                              <span class="distance distance_<?php echo $source->getSourceCode(); ?>"></span>
+                                                              <?php if (!$block->getData('canSelectPreferredStore') && $source->getData('available') !== null): ?>
+                                                                  <?php if ($source->getData('available') == 2): ?>
+                                                                      <span class="pos-backorder"><?php echo __($source->getStockStatusMessageBackorder() != "" ? $source->getStockStatusMessageBackorder() : "Backorder"); ?></span>
+                                                                  <?php elseif (in_array($source->getData('available'), [1,3])): ?>
+                                                                      <span class="pos-in-stock"><?php echo __($source->getStockStatusMessage() != "" ? $source->getStockStatusMessage() : "In stock"); ?></span>
+                                                                  <?php else : ?>
+                                                                      <span class="pos-out-of-stock"><?php echo __($source->getStockStatusMessageOutOfStock() != "" ? $source->getStockStatusMessageOutOfStock() : "Out of Stock"); ?></span>
+                                                                  <?php endif; ?>
+                                                              <?php endif; ?>
+
+                    <div id="place_<?php echo $source->getSourceCode(); ?>" class="details" style="display:block !important">
+
+                      <?php echo $block->getHelper()->parseTemplate($source, "description", $source->getUseConfigDescription()); ?>
+
+
+                        <?php if ($block->getData('canSelectPreferredStore')): ?>
+                            <span class="tools-buttons">
+                            <a href="#" class="choose_preferred_store"
+                               id="preferred_store_<?php echo $source->getSourceCode(); ?>">Choose this store</a>
+                            </span>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+<div id="dirRendererBlock">
+    <div id="direction_title">
+        <h3><?php echo __('Your directions') ?></h3>
+        <span><a id="close_btn" class="render_tool" href="javascript:void(0)"><?php echo __('Close') ?></a></span> |
+        <span><a class="render_tool" href="javascript:print()"><?php echo __('Print') ?></a>  </span>
+    </div>
+    <div id="directions"></div>
+</div>
+<script>
+    require(['jquery', 'storelocator'], function ($, storelocator) {
+        'use strict';
+        storelocator.W_GP = {
+            strings: {
+                getDirections: '<?php echo __("Get Directions"); ?>',
+                showOnGoogleMap: '<?php echo __("Show on Google Map"); ?>',
+                from: '<?php echo __("From"); ?>',
+                noStoreLocated: '<?php echo __("No store located"); ?>',
+                youAreHere: '<?php echo __("You are here"); ?>',
+                theClosestStoreIs: '<?php echo __("The nearest store is"); ?>',
+                myPreferredStoreIs: '<?php echo __("Your preferred store is"); ?>',
+                myPreferredStore: '<?php echo __("Your preferred store"); ?>',
+                noResultFound: '<?php echo __("No result found."); ?>',
+                unableToFindYourLocation: '<?php echo __("Store Locator"); ?>',
+                distanceCalculationFailed: '<?php echo __("Distance calculation failed"); ?>',
+                showMyLocation: '<?php echo __("show my location"); ?>',
+                changeMyLocation: '<?php echo __("change my location"); ?>',
+                yourLocation: '<?php echo __("Your location"); ?>',
+                findMe: '<?php echo __("Go!"); ?>',
+                enterYourLocation: '<?php echo __("Enter your Postal Code"); ?>',
+                setANewLocation: '<?php echo __("Set a new location"); ?>',
+                youDirections: '<?php echo __("Your directions"); ?>',
+                close: '<?php echo __("Close"); ?>',
+                print: '<?php echo __("Print"); ?>',
+                searchingYourLocation: '<?php echo __("Searching your location"); ?>',
+                allOurStoreLocations: '<?php echo __("All our store locations"); ?>',
+                selectACountry: '<?php echo __("Select a country"); ?>',
+                allCountries: '<?php echo __("All countries"); ?>',
+                selectStore: '<?php echo __("Choose this store"); ?>'
+            },
+            myAddress: null
+        };
+
+        storelocator.nbStoresToDisplay = "<?php echo $block->getNbStoresToDisplay(); ?>";
+        storelocator.sources = <?php echo $block->getJsonData(); ?>;
+
+        storelocator.displayDistance = "<?php echo $block->getDisplayDistance(); ?>";
+        storelocator.displayDuration = "<?php echo $block->getDisplayDuration(); ?>";
+        storelocator.unitSystem = "<?php echo $block->getUnitSystem(); ?>";
+
+        storelocator.initialize();
+
+        $(document).on("store_selected_pas", function (evt, id) {
+            storelocator.displayStore(storelocator.getStoreIndexById(id));
+        });
+
+        $(document).on("click", ".go-to-source", function () {
+            storelocator.displayStore(storelocator.getStoreIndexById($(this).attr('id')));
+        });
+
+        $(document).on("change", "#country_place", function () {
+            storelocator.updateList();
+        });
+
+        $(document).on('click', '#close_btn', function () {
+            storelocator.closeDirection();
+        });
+        $(document).on('preferred-store-selected', function (evt, index) {
+            storelocator.displayStore(index);
+        });
+    });
+
+document.getElementById('geocoder').addEventListener('keyup',function(e){
+    if (e.which == 13) this.blur();
+});
+
+</script>
