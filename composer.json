@@ -15,6 +15,10 @@
         "repo": {
             "type": "composer",
             "url": "https://repo.magento.com"
+        },
+        "mirasvit-ssu2": {
+            "type": "composer",
+            "url": "https://49640:KTJS0GE7VL@packages.mirasvit.com/49640:KTJS0GE7VL/"
         }
     },
     "require": {
