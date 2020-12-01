@@ -1,0 +1,28 @@
+{
+  "name": "woom/cmspagesinmenu",
+  "description": "Magento2 CMS pages in menu extension",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "type": "magento2-module",
+  "version": "1.0.2",
+  "authors": [
+    {
+      "name": "WOOM",
+      "email": "info@woom.digital",
+      "homepage": "https://woom.digital/"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Woom\\CmsPagesInMenu\\": ""
+    }
+  },
+  "require": {
+    "php": "~7.0.13|~7.1.0|~7.1.3|~7.2.0|~7.3.0|~7.4.0",
+    "magento/module-cms": "102.0.*|103.0.*|104.0.*",
+    "magento/framework": "101.0.*|102.0.*|103.0.*"
+  }
+}

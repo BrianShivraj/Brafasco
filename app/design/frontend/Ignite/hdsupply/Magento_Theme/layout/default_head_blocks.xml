@@ -15,5 +15,6 @@
         <font src="fonts/fontawesome-webfont.woff2"/>
         <font src="fonts/FontAwesome.otf"/>
          <link src="js/custom.js"/>
+         <link src="css/source/animate.min.css"/>
     </head>
 </page>

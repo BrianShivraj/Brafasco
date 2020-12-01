@@ -11,7 +11,7 @@
           <container htmlClass="top-bar" htmlTag="div" name="branches1">
           <block class="Magento\Cms\Block\Block" name="top-pro" before ="logo">
               <arguments>
-                  <argument name="block_id" xsi:type="string">header_tag_line</argument>
+                  <argument name="block_id" xsi:type="string">header_tag_line_fr</argument>
               </arguments>
 
       </block>
@@ -34,75 +34,102 @@
         <referenceBlock name="my-account-link" remove="true" />
    <referenceContainer name="page.top">
      <container htmlClass="home-special" htmlTag="div" name="branches">
-           <block class="Magento\Cms\Block\Block" name="home-specials" before="breadcrumbs">
+           <block class="Magento\Cms\Block\Block" name="home-specials-fr" before="breadcrumbs">
                <arguments>
-                   <argument name="block_id" xsi:type="string">home-specials</argument>
+                   <argument name="block_id" xsi:type="string">home-specials-fr</argument>
                </arguments>
            </block>
         </container>
        </referenceContainer>
-  <referenceContainer name="header-wrapper">
-    <container htmlClass="header-social" htmlTag="div" name="ship.notice.col-12">
-        <block class="Magento\Cms\Block\Block" name="header-social" after="minicart">
-            <arguments>
-                <argument name="block_id" xsi:type="string">header-social</argument>
-            </arguments>
-        </block>
-    </container>
-     </referenceContainer>
+       <referenceContainer name="header-wrapper">
+       <container htmlClass="header-social" htmlTag="div" name="header-1">
+           <block class="Magento\Cms\Block\Block" name="header-phone" after="minicart">
+               <arguments>
+                   <argument name="block_id" xsi:type="string">header-phone</argument>
+               </arguments>
+           </block>
+       </container>
+        </referenceContainer>
+        <referenceContainer name="header-wrapper">
+          <container htmlClass="header-social" htmlTag="div" name="header-2">
+              <block class="Magento\Cms\Block\Block" name="header-facebook" before="header-1">
+                  <arguments>
+                      <argument name="block_id" xsi:type="string">header-facebook</argument>
+                  </arguments>
+              </block>
+          </container>
+           </referenceContainer>
+           <referenceContainer name="header-wrapper">
+             <container htmlClass="header-social" htmlTag="div" name="header-3">
+                 <block class="Magento\Cms\Block\Block" name="header-twitter" before="header-2">
+                     <arguments>
+                         <argument name="block_id" xsi:type="string">header-twitter</argument>
+                     </arguments>
+                 </block>
+             </container>
+              </referenceContainer>
+              <referenceContainer name="header-wrapper">
+                <container htmlClass="header-social" htmlTag="div" name="header-4">
+                    <block class="Magento\Cms\Block\Block" name="header-instagram" before="header-3">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">header-instagram</argument>
+                        </arguments>
+                    </block>
+                </container>
+                 </referenceContainer>
 
-
- <move element="breadcrumbs" destination="page.top" after="home-specials"/>
-<move element="top.search" destination="catalog.topnav" before="top.menu" />
+                 <move element="action.nav-toggle" destination="home-specials" after="header.panel" />
+                  <move element="breadcrumbs" destination="page.top" after="home-specials"/>
+                 <move element="top.search" destination="catalog.topnav" before="top.menu" />
 
 <referenceContainer name="footer">
 <container htmlClass="footercontent" htmlTag="div" name="footer-1">
-    <block class="Magento\Cms\Block\Block" name="footer_locations" after="-">
+    <block class="Magento\Cms\Block\Block" name="footer_locations_fr" after="-">
         <arguments>
-            <argument name="block_id" xsi:type="string">footer_links</argument>
+            <argument name="block_id" xsi:type="string">footer_links_fr</argument>
         </arguments>
     </block>
 </container>
  </referenceContainer>
  <referenceContainer name="footer">
  <container htmlClass="footercontent" htmlTag="div" name="footer-2">
-     <block class="Magento\Cms\Block\Block" name="footer_links" after="footer-1">
+     <block class="Magento\Cms\Block\Block" name="footer_links_fr" after="footer-1">
          <arguments>
-             <argument name="block_id" xsi:type="string">footer_locations</argument>
+             <argument name="block_id" xsi:type="string">footer_locations_fr</argument>
          </arguments>
      </block>
  </container>
   </referenceContainer>
   <referenceContainer name="footer">
   <container htmlClass="footercontent" htmlTag="div" name="footer-3">
-      <block class="Magento\Cms\Block\Block" name="footer_services" after="footer-2">
+      <block class="Magento\Cms\Block\Block" name="footer_services_fr" after="footer-2">
           <arguments>
-              <argument name="block_id" xsi:type="string">footer_services</argument>
+              <argument name="block_id" xsi:type="string">footer_services_fr</argument>
           </arguments>
       </block>
   </container>
    </referenceContainer>
    <referenceContainer name="footer">
    <container htmlClass="footercontent" htmlTag="div" name="footer-4">
-       <block class="Magento\Cms\Block\Block" name="footer_reources" after="footer-3">
+       <block class="Magento\Cms\Block\Block" name="footer_reources_fr" after="footer-3">
            <arguments>
-               <argument name="block_id" xsi:type="string">footer_resources</argument>
+               <argument name="block_id" xsi:type="string">footer_resources_fr</argument>
            </arguments>
        </block>
    </container>
     </referenceContainer>
     <referenceContainer name="footer">
     <container htmlClass="footercontent" htmlTag="div" name="footer-5">
-        <block class="Magento\Cms\Block\Block" name="footer_suppliers" after="footer-4">
+        <block class="Magento\Cms\Block\Block" name="footer_suppliers_fr" after="footer-4">
             <arguments>
-                <argument name="block_id" xsi:type="string">footer_suppliers</argument>
+                <argument name="block_id" xsi:type="string">footer_suppliers_fr</argument>
             </arguments>
         </block>
     </container>
      </referenceContainer>
      <referenceContainer name="footer">
      <container htmlClass="footercontent" htmlTag="div" name="footer-logo1">
-         <block class="Magento\Cms\Block\Block" name="footer-logo" after="footer-5">
+         <block class="Magento\Cms\Block\Block" name="footer-logo-fr" after="footer-5">
              <arguments>
                  <argument name="block_id" xsi:type="string">footer_logo</argument>
              </arguments>
@@ -113,9 +140,9 @@
       <referenceContainer name="footer-container">
     <container name="copyright" label="Page Footer" htmlTag="div" htmlClass="footercopyright">
 
-      <block class="Magento\Cms\Block\Block" name="footer-copyright" after="footer-logo">
+      <block class="Magento\Cms\Block\Block" name="footer_copyright_fr" after="footer-logo">
           <arguments>
-              <argument name="block_id" xsi:type="string">footer_copyright</argument>
+              <argument name="block_id" xsi:type="string">footer_copyright_fr</argument>
           </arguments>
       </block>
 
