@@ -52,7 +52,7 @@
      </referenceContainer>
      <referenceContainer name="header-wrapper">
        <container htmlClass="header-social" htmlTag="div" name="header-2">
-           <block class="Magento\Cms\Block\Block" name="header-facebook" before="header-1">
+           <block class="Magento\Cms\Block\Block" name="header-facebook" after="header-1">
                <arguments>
                    <argument name="block_id" xsi:type="string">header-facebook</argument>
                </arguments>
@@ -61,7 +61,7 @@
         </referenceContainer>
         <referenceContainer name="header-wrapper">
           <container htmlClass="header-social" htmlTag="div" name="header-3">
-              <block class="Magento\Cms\Block\Block" name="header-twitter" before="header-2">
+              <block class="Magento\Cms\Block\Block" name="header-twitter" after="header-2">
                   <arguments>
                       <argument name="block_id" xsi:type="string">header-twitter</argument>
                   </arguments>
@@ -70,7 +70,7 @@
            </referenceContainer>
            <referenceContainer name="header-wrapper">
              <container htmlClass="header-social" htmlTag="div" name="header-4">
-                 <block class="Magento\Cms\Block\Block" name="header-instagram" before="header-3">
+                 <block class="Magento\Cms\Block\Block" name="header-instagram" after="header-3">
                      <arguments>
                          <argument name="block_id" xsi:type="string">header-instagram</argument>
                      </arguments>
