@@ -37,7 +37,7 @@ define(["jquery"], function ($) {
             var myOptions = {
                 zoom: 10,
                 center: latlng,
-                mapTypeId: google.maps.MapTypeId.HYBRID,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
                 componentRestrictions: { country: 'CA' }
 
             };
