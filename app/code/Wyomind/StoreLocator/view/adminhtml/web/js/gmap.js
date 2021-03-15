@@ -25,7 +25,6 @@ define(["jquery"], function ($) {
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             var options = {
-  types: ['(cities)'],
   componentRestrictions: {country: "ca"}
  };
 

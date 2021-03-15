@@ -28,6 +28,7 @@ define(["jquery"], function ($) {
                 value: null
             }
         },
+
         initialize: function (code) {
             var latlng = new google.maps.LatLng(0, 0);
             if (this.sources[0] !== undefined) {
@@ -36,7 +37,9 @@ define(["jquery"], function ($) {
             var myOptions = {
                 zoom: 10,
                 center: latlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                mapTypeId: google.maps.MapTypeId.HYBRID,
+                componentRestrictions: { country: 'CA' }
+
             };
             var pStore = this.getCookie("preferred_store");
             if (pStore !== null && pStore !== "") {
@@ -69,6 +72,7 @@ define(["jquery"], function ($) {
                 }.bind(this), 2500);
 
         },
+
         geoLocation: function () {
             // Try W3C Geolocation (Preferred)
             if (navigator.geolocation) {
@@ -169,7 +173,7 @@ define(["jquery"], function ($) {
             }
 
             geocoder.geocode(data, function (results, status) {
-                if (this.dirRenderer !== null) {
+                    if (this.dirRenderer !== null) {
                     this.dirRenderer.setMap(null);
                 }
                 if (status === google.maps.GeocoderStatus.OK) {
@@ -502,6 +506,7 @@ define(["jquery"], function ($) {
                 this.blindStore(index);
             }
         },
+
         blindStore: function (index) {
             var id = this.getStoreIdByIndex(index);
             $("#storelocator_scroll .details[id!=place_" + id + "]").each(function () {
@@ -643,4 +648,4 @@ define(["jquery"], function ($) {
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
     };
-});
+    });
