@@ -25,7 +25,6 @@
             </arguments>
         </referenceBlock>
 
-       <referenceBlock name="top.search" remove="true" />
         <referenceBlock name="report.bugs" remove="true"/>
        <referenceBlock name="minicart" remove="true"/>
        <referenceBlock name="form.subscribe" remove="true"/>
@@ -33,6 +32,7 @@
         <referenceBlock name="authorization-link" remove="true" />
         <referenceBlock name="wish-list-link" remove="true" />
         <referenceBlock name="my-account-link" remove="true" />
+         <referenceBlock name="top.search" remove="true" />
 
    <referenceContainer name="page.top">
      <container htmlClass="home-special" htmlTag="div" name="branches">
