@@ -33,10 +33,6 @@
         <referenceBlock name="wish-list-link" remove="true" />
         <referenceBlock name="my-account-link" remove="true" />
 
-        <referenceContainer name="header.container">
-            <referenceBlock name="top.search" remove="true"/>
-        </referenceContainer>
-
    <referenceContainer name="page.top">
      <container htmlClass="home-special" htmlTag="div" name="branches">
            <block class="Magento\Cms\Block\Block" name="home-specials" before="breadcrumbs">
@@ -84,8 +80,8 @@
               </referenceContainer>
 
 <move element="action.nav-toggle" destination="home-specials" after="header.panel" />
- <move element="breadcrumbs" destination="page.top" after="home-specials"/>
-
+<move element="breadcrumbs" destination="page.top" after="home-specials"/>
+<move element="top.search" destination="catalog.topnav" before="top.menu" />
 
 <referenceContainer name="footer">
 <container htmlClass="footercontent" htmlTag="div" name="footer-1">
