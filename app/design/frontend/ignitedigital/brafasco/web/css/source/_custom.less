@@ -41,9 +41,10 @@ f.promotion-wrapper {
     .page-title {
         margin-bottom: 30px;
         display: inline-block;
-        font-size: 24px;
+        font-size: 26px;
         letter-spacing: 0.5px;
-        text-transform: uppercase;
+        text-transform: none;
+        font-weight: 700;
     }
 }
 .slider-outer {
@@ -3305,8 +3306,8 @@ button:not(.primary) {
                         }
                         #qty {
                             float: left;
-                            width: 51px;
-                            height: 51px;
+                            width: 44px;
+                            height: 44px;
                             text-align: center;
                         }
                         .qty-main {
@@ -3374,9 +3375,9 @@ button:not(.primary) {
             margin-bottom: 0;
             .price-wrapper  {
                 .price {
-                    font-size: 24px;
-                    font-weight: 600;
-                    color: #333333;
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: #ffc20f;
                 }
             }
         }
@@ -3411,18 +3412,15 @@ button:not(.primary) {
             .stock {
                 &.available {
                     margin-right: 0;
-                    background: green;
-                    color: #ffffff;
-                    margin-top: 7px;
-                    margin-bottom: 7px;
-                    padding: 1px 5px;
+                    background: none;
+                    color: green;
                     font-weight: 600;
                     float: right;
                 }
                 &.unavailable {
-                    background: #ffcc00;
+                    background: none;
                     margin-right: 0;
-                    color: #ffffff;
+                    color: red;
                     margin-top: 7px;
                     margin-bottom: 7px;
                     padding: 1px 5px;
@@ -7200,4 +7198,47 @@ button {
     padding-right: 10px;
     position: relative;
     margin-left: 0;
+}
+
+element.style {
+}
+.product-info-main .product.attribute.sku {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+.product-info-main .product-info-stock-sku {
+    display: table-cell;
+    padding-bottom: 10px;
+    padding-left: 0;
+    text-align: left;
+    vertical-align: top;
+}
+.product-info-main .product-info-price {
+    color: #575757;
+    border-bottom: 0px solid #e1e1e1;
+    display: table;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.product-info-main .product.attribute.overview {
+    padding: 15px 0 0;
+    margin: 5px 0 15px;
+    border-bottom: none;
+    border-top: 0px solid #e5e5e5;
+}
+.product-info-main .product-add-form .box-tocart .actions .action.tocart {
+    margin-bottom: 0;
+    width: auto;
+    min-width: 200px;
+    margin-right: 0;
+    background: linear-gradient(to bottom, #fbd453 0%, #eab100 100%);
+    border-radius: 10px;
+    color: #000;
+    padding: 10px;
+    text-transform: none;
+
 }
