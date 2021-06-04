@@ -32,6 +32,11 @@
         <referenceBlock name="authorization-link" remove="true" />
         <referenceBlock name="wish-list-link" remove="true" />
         <referenceBlock name="my-account-link" remove="true" />
+
+        <referenceContainer name="header.container">
+            <referenceBlock name="top.search" remove="true"/>
+        </referenceContainer>
+
    <referenceContainer name="page.top">
      <container htmlClass="home-special" htmlTag="div" name="branches">
            <block class="Magento\Cms\Block\Block" name="home-specials-fr" before="breadcrumbs">

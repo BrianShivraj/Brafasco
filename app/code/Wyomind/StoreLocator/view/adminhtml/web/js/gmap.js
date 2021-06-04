@@ -24,7 +24,12 @@ define(["jquery"], function ($) {
                 scaleControl: true,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
+            var options = {
+  componentRestrictions: {country: "ca"}
+ };
 
+ var input = document.getElementById('searchTextField');
+ var autocomplete = new google.maps.places.Autocomplete(input, options);
             var map = new google.maps.Map(component, mapOptions);
             var marker = new google.maps.Marker({
                 position: LatLng,

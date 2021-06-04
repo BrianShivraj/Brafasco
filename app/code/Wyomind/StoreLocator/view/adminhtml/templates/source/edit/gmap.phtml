@@ -23,6 +23,13 @@
             $('#gmap').trigger('contentUpdated');
         }, 1000)
     })
+    function initialize() {
 
+     var options = {
+          componentRestrictions: {country: "ca"}
+     };
+
+     var input = document.getElementById('searchTextField');
+     var autocomplete = new google.maps.places.Autocomplete(input, options);
+    }
 </script>
-
