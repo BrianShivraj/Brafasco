@@ -85,6 +85,6 @@ php.ini
 -  `.magento/services.yaml`—sets up a MySQL instance, including Redis and ElasticSearch. 
 -  `composer.json`—fetches the Magento Enterprise Edition and configuration scripts to prepare your application.
 
-## Developer documentation
+## Developer documentation for details
 
 See the [Magento Commerce Cloud Guide](http://devdocs.magento.com/guides/v2.2/cloud/bk-cloud.html).
