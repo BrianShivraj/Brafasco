@@ -65,7 +65,7 @@ web:
 
 
 # The size of the persistent disk of the application (in MB).
-disk: 8192
+disk: 10248
 
 # The mounts that will be performed when the package is deployed.
 mounts:
