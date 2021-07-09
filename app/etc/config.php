@@ -502,7 +502,7 @@ return [
         'Magento_Tinymce3' => 1,
         'Magento_Tinymce3Banner' => 1,
         'Magento_Translation' => 1,
-        'Magento_TwoFactorAuth' => 1,
+        'Magento_TwoFactorAuth' => 0,
         'Magento_CheckoutStaging' => 1,
         'Magento_Ups' => 1,
         'Magento_CatalogUrlRewriteStaging' => 1,
