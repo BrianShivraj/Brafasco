@@ -26,13 +26,11 @@
         </referenceBlock>
 
         <referenceBlock name="report.bugs" remove="true"/>
-       <referenceBlock name="minicart" remove="true"/>
        <referenceBlock name="form.subscribe" remove="true"/>
-       <referenceBlock name="register-link" remove="true" />
-        <referenceBlock name="authorization-link" remove="true" />
-        <referenceBlock name="wish-list-link" remove="true" />
-        <referenceBlock name="my-account-link" remove="true" />
-
+        <referenceBlock name="register-link" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+    <referenceBlock name="view.addto.compare" remove="true" />
+     <referenceBlock name="view.addto.wishlist" remove="true" />
    <referenceContainer name="page.top">
      <container htmlClass="home-special" htmlTag="div" name="branches">
            <block class="Magento\Cms\Block\Block" name="home-specials" before="breadcrumbs">
